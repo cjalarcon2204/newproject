@@ -1,0 +1,56 @@
+{% extends 'base.html' %}
+
+{% block title %}
+    Registro de Cliente
+{% endblock %}
+
+{% block content %}
+
+<div class="container">
+    <div class="col-md-12" style="margin-top: 50px;">
+    <div class="col-md-12" style="margin-left: 120px;">
+
+            <blockquote class="blockquote text-center">
+            <h1> CLIENTES </h1>
+            </blockquote>
+            <blockquote>
+                <a class="btn btn-primary" href="{% url 'registrar_cliente' %}">Registrar Cliente</a>
+            </blockquote>
+
+            <div class="table-responsive">
+                <table class="table table-bordered">
+                    <thead class="thead-dark">
+                      <tr>
+                        <th>Nombres</th>
+                        <th>Apellidos</th>
+                        <th>Correo Electronico</th>
+                        <th>Direccion</th>
+                        <th>Telefono</th>
+                        <th>Estado</th>
+                        <th>Editar</th>
+                        <th>Eliminar</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    {% for cliente in cliente_obj %}
+                        <tr>
+                            <td>{{ cliente.nombres }}</td>
+                            <td>{{ cliente.apellidos }}</td>
+                            <td>{{ cliente.correo }}</td>
+                            <td>{{ cliente.direccion }}</td>
+                            <td>{{ cliente.telefono }}</td>
+                            <td>{{ cliente.estado }}</td>
+
+                            <td><a class="btn btn-outline-primary" href="{% url 'modificar_cliente' cliente.id %}">Editar</a></td>
+                            <td><a class="btn btn-outline-danger" href="{% url 'eliminar_cliente' cliente.id %}">Eliminar</a></td>
+
+                        </tr>
+                    {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+
+{% endblock %}

@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+  {% block title %}{% endblock %}
+  <meta content="" name="description">
+  <meta content="" name="keywords">
+
+  {% load static %}
+  <link href="{% static "img/favicon.png" %}" rel="icon">
+  <link href="{% static "img/apple-touch-icon.png" %}" rel="apple-touch-icon">
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Raleway:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
+  <link href="{% static "vendor/bootstrap/css/bootstrap.min.css" %}" rel="stylesheet">
+  <link href="{% static "vendor/icofont/icofont.min.css" %}" rel="stylesheet">
+  <link href="{% static "vendor/boxicons/css/boxicons.min.css" %}" rel="stylesheet">
+  <link href="{% static "vendor/boxicons/css/boxicons.min.css" %}" rel="stylesheet">
+  <link href="{% static "vendor/owl.carousel/assets/owl.carousel.min.css" %}" rel="stylesheet">
+  <link href="{% static "vendor/aos/aos.css" %}" rel="stylesheet">
+  <link href="{% static "css/style.css" %}" rel="stylesheet">
+</head>
+
+<body>
+
+      <!-- ======= Mobile nav toggle button ======= -->
+      <button type="button" class="mobile-nav-toggle d-xl-none"><i class="icofont-navigation-menu"></i></button>
+
+      <!-- ======= Header ======= -->
+      <header id="header">
+        <div class="d-flex flex-column">
+
+          <div class="profile">
+            {% load static %}
+            <img src="" alt="" class="img-fluid rounded-circle">
+            <h1 class="text-light"><a href="">Bienvenido {{ request.user.username }} </a></h1>
+
+          </div>
+
+          <nav class="nav-menu">
+            <ul>
+
+              <li><a href="{% url "consultar_cliente" %}"><i class="bx bxs-home-circle"></i> <span>Clientes</span></a></li>
+              <li><a href="{% url "consultar_empresa" %}"><i class="bx bxs-home-circle"></i> <span>Empresa</span></a></li>
+              <li><a href="{% url "consultar_documentos" %}"><i class="bx bxs-home-circle"></i> <span>Documentos</span></a></li>
+              <li><a href="{% url "consultar_servicio" %}"><i class= "bx bxs-home-circle"></i> <span>Servicios</span></a></li>
+              <li><a href="{% url "consultar_categoria" %}"><i class= "bx bxs-home-circle"></i> <span>Categoria de Servicios</span></a></li>
+                <li><a href="{% url "consultar_usuarios" %}"><i class= "bx bxs-home-circle"></i> <span>Usuarios</span></a></li>
+                <li><a href="{% url "consultar_roles" %}"><i class= "bx bxs-home-circle"></i> <span>Roles</span></a></li>
+                <li><a href="{% url "consultar_roles_usuarios" %}"><i class= "bx bxs-home-circle"></i> <span>Roles-Usuarios</span></a></li>
+              <li><a href=""><i class="bx bxs-file-find"></i> <span>Informes</span></a></li>
+
+              <li><a href="{% url "logout" %}"><i class="bx bx-log-in"></i><spam>Cerrar Sesión</spam> </a></li>
+
+            </ul>
+          </nav><!-- .nav-menu -->
+          <button type="button" class="mobile-nav-toggle d-xl-none"><i class="icofont-navigation-menu"></i></button>
+
+        </div>
+  </header><!-- End Header -->
+
+<!-- ======= CONTENT ======= -->
+{% block content %}     {% endblock %}
+  <!-- ======= Footer ======= -->
+  <footer id="footer">
+    <div class="container">
+      <div class="copyright">
+       <!-- &copy; Copyright <strong><span>cdk Global Consulting</span></strong> -->
+      </div>
+      <div class="credits">
+        <!-- All the links in the footer should remain intact. -->
+        <!-- You can delete the links only if you purchased the pro version. -->
+        <!-- Licensing information: https://bootstrapmade.com/license/ -->
+        <!-- Purchase the pro version with working PHP/AJAX contact form: https://bootstrapmade.com/iportfolio-bootstrap-portfolio-websites-template/ -->
+        <!--Designed by <a href="https://bootstrapmade.com/">Alarcón</a> -->
+      </div>
+    </div>
+  </footer><!-- End  Footer -->
+
+  <a href="#" class="back-to-top"><i class="icofont-simple-up"></i></a>
+
+  <!-- Vendor JS Files -->
+  {% load static %}
+  <script src="{% static "vendor/jquery/jquery.min.js" %}"></script>
+  <script src="{% static "vendor/bootstrap/js/bootstrap.bundle.min.js" %}"></script>
+  <script src="{% static "vendor/jquery.easing/jquery.easing.min.js" %}"></script>
+  <script src="{% static "vendor/php-email-form/validate.js" %}"></script>
+  <script src="{% static "vendor/waypoints/jquery.waypoints.min.js" %}"></script>
+  <script src="{% static "vendor/counterup/counterup.min.js" %}"></script>
+  <script src="{% static "vendor/isotope-layout/isotope.pkgd.min.js" %}"></script>
+  <script src="{% static "vendor/venobox/venobox.min.js" %}"></script>
+  <script src="{% static "vendor/owl.carousel/owl.carousel.min.js" %}"></script>
+  <script src="{% static "vendor/typed.js/typed.min.js" %}"></script>
+  <script src="{% static "vendor/aos/aos.js" %}"></script>
+  <script src="{% static "js/main.js" %}"></script>
+
+</body>
+
+</html>

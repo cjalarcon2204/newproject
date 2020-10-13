@@ -1,0 +1,58 @@
+{% extends 'base.html' %}
+
+{% block title %}
+    Registro de Empresas
+{% endblock %}
+
+{% block content %}
+
+<div class="container">
+
+        <div class="col-md-12" style="margin-top: 50px;">
+        <div class="col-md-12" style="margin-left: 120px;">
+
+            <blockquote class="blockquote text-center">
+                <h1> EMPRESA </h1>
+            </blockquote>
+            <blockquote>
+                <a class="btn btn-primary" href="{% url 'registrar_empresa' %}">Registrar Empresa</a>
+            </blockquote>
+
+            <div class="table-responsive">
+                <table class="table table-bordered">
+                    <thead class ="table-dark">
+                    <tr>
+                        <th>Nombre</th>
+                        <th>Ruc</th>
+                        <th>Razon Social</th>
+                        <th>Razon Comercial</th>
+                        <th>Direccion</th>
+                        <th>Correo Electronico</th>
+                        <th>Editar</th>
+                        <th>Eliminar</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+
+                    {% for empresa in empresa_obj %}
+                        <tr>
+                            <td>{{ empresa.nombre }}</td>
+                            <td>{{ empresa.ruc }}</td>
+                            <td>{{ empresa.razon_social }}</td>
+                            <td>{{ empresa.razon_comercial }}</td>
+                            <td>{{ empresa.direccion }}</td>
+                            <td>{{ empresa.correo }}</td>
+
+                            <td><a class="btn btn-outline-primary" href="{% url 'modificar_empresa' empresa.id %}">Editar</a></td>
+                            <td><a class="btn btn-outline-danger" href="{% url 'eliminar_empresa' empresa.id %}">Eliminar</a></td>
+
+                        </tr>
+                    {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+
+{% endblock %}

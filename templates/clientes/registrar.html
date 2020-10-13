@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+
+{% block title %}
+    Registrar
+{% endblock %}
+
+{% block content %}
+<div class="container">
+
+    <div class="col-md-12" style="margin-top: 50px;">
+    <div class="col-md-12" style="margin-left: 500px;">
+
+
+    <section class="form-register">
+    <h2>Registrar </h2>
+    <form method="POST">
+        {% csrf_token %}
+            <h2> Datos de Cliente</h2>
+            {{ ClienteForm.as_p }}
+        <input  type="submit" class="btn btn-primary" value="Registrar" />
+        <a href="{% url 'consultar_cliente' %}" class="btn btn-secondary">Cancelar</a>
+    </form>
+{% endblock %}

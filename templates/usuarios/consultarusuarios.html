@@ -1,0 +1,47 @@
+{% extends "base.html" %}
+
+
+{% block content %}
+ <div class="container">
+        <div class="col-md-12" style="margin-top: 70px;">
+        <div class="col-md-12" style="margin-left: 120px;">
+
+            <blockquote class="blockquote text-center">
+                <h1> USUARIOS </h1>
+            </blockquote>
+            <blockquote>
+                <a class="btn btn-primary" href="{% url 'crear_usuario' %}">Crear Usuario</a>
+            </blockquote>
+
+            <div class="table-responsive">
+                <table class="table table-bordered">
+                    <thead class="table-dark">
+                    <tr>
+                        <th>Id</th>
+                        <th>Username</th>
+                        <th>Rol</th>
+
+                        <th>Editar</th>
+                        <th>Eliminar</th>
+
+                    </tr>
+                    </thead>
+                    <tbody>
+
+                    {% for u in usuarios %}
+                        <tr>
+                         <td>{{ u.id }}</td>
+                            <td>{{ u.username }}</td>
+                            <td>{{ u.rolusuario.rol.nombre }}</td>
+
+                        <td>  <a class="btn btn-outline-primary" href="{% url 'modificar_usuario' u.id  %}">Editar</a> </td>
+                        <td>  <a class="btn btn-outline-danger" href="{% url 'eliminar_usuario' u.id  %}">Eliminar</a> </td>
+
+                        </tr>
+                    {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+{% endblock %}

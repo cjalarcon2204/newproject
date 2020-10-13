@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+
+{% block title %}
+    Registrar
+{% endblock %}
+
+{% block content %}
+<div class="container">
+
+    <div class="col-md-12" style="margin-top: 50px;">
+    <div class="col-md-12" style="margin-left: 500px;">
+
+    <section class="form-register">
+    <h2>Registrar </h2>
+    <form method="POST" action="" enctype="multipart/form-data">
+        {% csrf_token %}
+            <h2> Datos de Documentos</h2>
+            {{ DocumentosForm.as_p }}
+        <input class="btn btn-primary" type="submit" value="Registrar" />
+        <a href="{% url "consultar_documentos" %}" class="btn btn-secondary">Cancelar</a>
+    </form>
+{% endblock %}
+

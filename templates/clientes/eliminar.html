@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+
+{% block title %}
+    Eliminar Registro
+{% endblock %}
+
+{% block content %}
+    <section class="form-register">
+    <h2> Eliminar Registro </h2>
+    <form method="POST">
+        {% csrf_token %}
+        <p>Esta Seguro de querer Borrar este registro?</p>
+        <button type="submit" class="btn btn-primary">Si</button>
+        <a href="{% url 'consultar_cliente' %}" class="btn btn-danger">No</a>
+    </form>
+
+{% endblock %}

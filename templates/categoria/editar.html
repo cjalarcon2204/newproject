@@ -1,0 +1,20 @@
+{% extends "base.html" %}
+
+{% block title %}
+        Editar Registro
+{% endblock %}
+
+{% block content %}
+<div class="container">
+    <div class="col-md-12" style="margin-top: 50px;">
+    <div class="col-md-12" style="margin-left: 500px;">
+
+    <section class="form-register">
+    <h2> Editar Registro </h2>
+    <form method="POST">
+        {% csrf_token %}
+             {{ CategoriaForm.as_p  }}
+        <input type="submit" class="btn btn-primary" value="Editar Registro" />
+    </form>
+
+{% endblock %}

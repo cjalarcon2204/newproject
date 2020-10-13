@@ -1,0 +1,93 @@
+{% extends 'base.html' %}
+
+{% block title %}
+    Registro de Documentos
+{% endblock %}
+
+{% block content %}
+
+<div class="container">
+
+    <div class="col-md-12" style="margin-top: 50px;">
+    <div class="col-md-12" style="margin-left: 120px;">
+
+            <blockquote class="blockquote text-center">
+                <h1> DOCUMENTOS </h1>
+            </blockquote>
+            <BLOCKQUOTE>
+                <a class="btn btn-primary" href="{% url 'registrar_documentos' %}">Registrar Documentos</a>
+            </BLOCKQUOTE>
+            <form method="POST" action="" enctype="multipart/form-data">
+
+            <div class="table-responsive">
+                <table class="table table-bordered">
+                    <thead class="thead-dark">
+                    <tr>
+                        <th>Sri</th>
+                        <th>Iess</th>
+                        <th>Nivel Financiero</th>
+                        <th>Nivel Tributario</th>
+                        <th>Nivel Laboral</th>
+                        <th>Numero de Trabajadores</th>
+                        <th>Representante Legal</th>
+                        <th>Editar</th>
+                        <th>Eliminar</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+
+                    {% for documentos in documentos_obj %}
+                            {% if documentos.sri %}
+                                <td>{{ documentos.sri }}</td>
+                            {% else %}
+                                <td>falta archivo</td>
+                            {% endif %}
+
+                            {% if documentos.iess %}
+                                <td>{{ documentos.iess }}</td>
+                            {% else %}
+                                <td>falta archivo</td>
+                            {% endif %}
+
+                            {% if documentos.niv_financiero %}
+                                <td>{{ documentos.niv_financiero }}</td>
+                            {% else %}
+                                <td>falta archivo</td>
+                            {% endif %}
+
+                            {% if documentos.niv_tributario %}
+                                <td>{{ documentos.niv_tributario }}</td>
+                            {% else %}
+                                <td>falta archivo</td>
+                            {% endif %}
+
+                            {% if documentos.niv_laboral %}
+                                <td>{{ documentos.niv_laboral }}</td>
+                            {% else %}
+                                <td>falta archivo</td>
+                            {% endif %}
+
+                            {% if documentos.trabajadores %}
+                                <td>{{ documentos.trabajadores }}</td>
+                            {% else %}
+                                <td>falta archivo</td>
+                            {% endif %}
+
+                            {% if documentos.trabajadores %}
+                                <td>{{ documentos.trabajadores }}</td>
+                            {% else %}
+                                <td>falta archivo</td>
+                            {% endif %}
+
+                            <td><a class="btn btn-outline-primary" href="{% url 'modificar_documentos' documentos.id %}">Editar</a></td>
+                            <td><a class="btn btn-outline-danger" href="{% url 'eliminar_documentos' documentos.id %}">Eliminar</a></td>
+                        </tr>
+                    {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+
+{% endblock %}

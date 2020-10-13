@@ -1,0 +1,48 @@
+{% extends 'base.html' %}
+
+{% block title %}
+    Registro de Servicio
+{% endblock %}
+
+{% block content %}
+
+<div class="container">
+    <div class="col-md-12" style="margin-top: 50px;">
+    <div class="col-md-12" style="margin-left: 120px;">
+
+            <blockquote class="blockquote text-center">
+            <h1> SERVICIO </h1>
+            </blockquote>
+            <blockquote>
+                <a class="btn btn-primary" href="{% url 'registrar_servicio' %}">Registrar Servicio</a>
+            </blockquote>
+
+            <div class="table-responsive">
+                <table class="table table-bordered">
+                    <thead class="thead-dark">
+                      <tr>
+                        <th>Tipo de Servicio</th>
+                        <th>Categoria</th>
+                        <th>Editar</th>
+                        <th>Eliminar</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    {% for servicio in servicio_obj %}
+                        <tr>
+                            <td>{{ servicio.tipo }}</td>
+                            <td>{{ servicio.cat_servicio }}</td>
+
+                            <td><a class="btn btn-outline-primary" href="{% url 'modificar_servicio' servicio.id %}">Editar</a></td>
+                            <td><a class="btn btn-outline-danger" href="{% url 'eliminar_servicio' servicio.id %}">Eliminar</a></td>
+
+                        </tr>
+                    {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+
+{% endblock %}
